@@ -10,7 +10,7 @@ import numpy as np
 st.title('BEST DATA SCRAPER')
 
 st.markdown("""
-This app performs simple webscraping of vehicles data from expat-dakar!
+This app performs simple webscraping of data from senegalese online sales platforms!
 * **Python libraries:** base64, pandas, streamlit, requests, bs4
 * **Data source:** [Vehicles-expat-dakar.com](https://www.expat-dakar.com/voitures/dakar?condition=used-abroad).
 """)
