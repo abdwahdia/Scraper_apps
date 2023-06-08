@@ -10,7 +10,7 @@ import numpy as np
 st.title('BEST DATA SCRAPER')
 
 st.markdown("""
-This app performs simple webscraping of data from senegalese online sales platforms!
+This app performs simple webscraping of vehicles data from expat-dakar!
 * **Python libraries:** base64, pandas, streamlit, requests, bs4
 * **Data source:** [Vehicles-expat-dakar.com](https://www.expat-dakar.com/voitures/dakar?condition=used-abroad).
 """)
@@ -19,6 +19,24 @@ st.sidebar.header('User Input Features')
 selected_type_vehicle = st.sidebar.selectbox('Type of vehicle',list(['used-abroad', 'used']))
 selected_page = st.sidebar.selectbox('Page', list(range(1,307)))
 selected_mul_page = st.sidebar.selectbox('Multiple Pages', list([int(p) for p in np.linspace(5, 300, 60)]))
+
+# Background function
+def add_bg_from_local(image_file):
+    with open(image_file, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url(data:image/{"jpg"};base64,{encoded_string.decode()});
+        background-size: cover
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
+
+add_bg_from_local('img_file2.jpg') 
 
 
 # Web scraping of Vehicles data on expat-dakar
